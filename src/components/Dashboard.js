@@ -3,7 +3,8 @@ import Pet from './Pet';
 
 export class Dashboard extends Component {
   componentDidMount(){
-    console.log('component mounted');
+    this.props.dispatch(fetchDogs());
+    this.props.dispatch(fetchCats());
   }
 
   onAdoptPet(){
