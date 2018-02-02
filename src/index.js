@@ -4,5 +4,5 @@ import './index.css';
 import Dashboard from './Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<DashboardApp />, document.getElementById('root'));
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
 registerServiceWorker();

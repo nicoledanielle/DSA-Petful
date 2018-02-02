@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default function Dashboard(props) {
+export class Dashboard extends Component {
   render() {
     return (
       <div>
@@ -51,3 +51,5 @@ export default function Dashboard(props) {
     )
   }
 }
+
+export default Dashboard;
