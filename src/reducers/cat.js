@@ -8,7 +8,7 @@ import{
 } from '../actions/cat'
 
 const initialState ={
-	cats: [],
+	cats: null,
 	loading: false,
 	error: null
 }

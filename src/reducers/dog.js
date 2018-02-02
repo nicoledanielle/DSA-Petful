@@ -8,7 +8,7 @@ import{
 } from '../actions/dog'
 
 const initialState ={
-	dogs: [],
+	dogs: null,
 	loading: false,
 	error: null
 }
