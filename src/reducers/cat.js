@@ -5,7 +5,7 @@ import{
 	ADOPT_CAT_REQUEST,
 	ADOPT_CAT_SUCCESS,
 	ADOPT_CAT_ERROR
-} from './actions/cat'
+} from '../actions/cat'
 
 const initialState ={
 	cats: [],
@@ -33,18 +33,18 @@ export const catReducer = (state = initialState, action) => {
 			loading: false
 		})
 	}
-	else if(action.type===DELETE_CAT_REQUEST){
+	else if(action.type===ADOPT_CAT_REQUEST){
 		return Object.assign({}, state, {
 			loading: false,
 			error: null
 		})
 	}
-	else if(action.type===DELETE_CAT_SUCCESS){
+	else if(action.type===ADOPT_CAT_SUCCESS){
 		return Object.assign({}, state, {
 			cats: action.cats
 		})
 	}
-	else if (action.type === DELETE_CAT_ERROR){
+	else if (action.type === ADOPT_CAT_ERROR){
 		return Object.assign({}, state, {
 			error: action.error,
 			loading: false

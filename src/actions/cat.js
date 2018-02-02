@@ -51,7 +51,7 @@ export const fetchCat = () => dispatch => {
 		})
 };
 
-export const fetchCat = () => dispatch => {
+export const adoptCat = () => dispatch => {
 	dispatch(adoptCatRequest());
 	return fetch(`/api/cat`, {
 		method: `DELETE`

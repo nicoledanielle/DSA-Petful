@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Pet from './Pet';
+import {fetchCat, fetchDog} from '../actions';
 
 export class Dashboard extends Component {
   componentDidMount(){
-    this.props.dispatch(fetchDogs());
-    this.props.dispatch(fetchCats());
+    this.props.dispatch(fetchDog());
+    this.props.dispatch(fetchCat());
   }
 
   onAdoptPet(){

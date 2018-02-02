@@ -5,7 +5,7 @@ import{
 	ADOPT_DOG_REQUEST,
 	ADOPT_DOG_SUCCESS,
 	ADOPT_DOG_ERROR
-} from './actions/dog'
+} from '../actions/dog'
 
 const initialState ={
 	dogs: [],
@@ -33,18 +33,18 @@ export const dogReducer = (state = initialState, action) => {
 			loading: false
 		})
 	}
-	else if(action.type===DELETE_DOG_REQUEST){
+	else if(action.type===ADOPT_DOG_REQUEST){
 		return Object.assign({}, state, {
 			loading: false,
 			error: null
 		})
 	}
-	else if(action.type===DELETE_DOG_SUCCESS){
+	else if(action.type===ADOPT_DOG_SUCCESS){
 		return Object.assign({}, state, {
 			dogs: action.dogs
 		})
 	}
-	else if (action.type === DELETE_DOG_ERROR){
+	else if (action.type === ADOPT_DOG_ERROR){
 		return Object.assign({}, state, {
 			error: action.error,
 			loading: false
