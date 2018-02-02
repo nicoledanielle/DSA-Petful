@@ -16,7 +16,44 @@ export const fetchDogError = dog => ({
   dog
 })
 
+export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST';
+export const adoptDogRequest = dog => ({
+  type: ADOPT_DOG_REQUEST,
+  dog
+})
+
+export const ADOPT_DOG_SUCCESS = 'ADOPT_DOG_SUCCESS';
+export const adoptDogSuccess = dog => ({
+  type: ADOPT_DOG_SUCCESS,
+  dog
+})
+
+export const ADOPT_DOG_ERROR = 'ADOPT_DOG_ERROR';
+export const adoptDogError = dog => ({
+  type: ADOPT_DOG_ERROR,
+  dog
+})
+
 export const fetchDog = () => dispatch => {
+	dispatch(adoptDogRequest());
+	return fetch(`/api/dog`, {
+		method: `DELETE`
+	})
+	.then(res => {
+	  if (!res.ok) {
+		  throw new Error(res.statusTest)
+	  }
+		dispatch(fetchDog());
+	  })
+	  .then(dog => {
+				dispatch(adoptDogSuccess(dog));
+      })
+    .catch(err => {
+      dispatch(adoptDogError(err));
+    });
+};
+
+export const adoptDog = () => dispatch => {
 	dispatch(fetchDogRequest());
 	return fetch(`/api/dog`)
 	.then(res => {

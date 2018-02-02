@@ -16,6 +16,24 @@ export const fetchCatError = cat => ({
   cat
 })
 
+export const ADOPT_CAT_REQUEST = 'ADOPT_CAT_REQUEST';
+export const adoptCatRequest = cat => ({
+  type: ADOPT_CAT_REQUEST,
+  cat
+})
+
+export const ADOPT_CAT_SUCCESS = 'ADOPT_CAT_SUCCESS';
+export const adoptCatSuccess = cat => ({
+  type: ADOPT_CAT_SUCCESS,
+  cat
+})
+
+export const ADOPT_CAT_ERROR = 'ADOPT_CAT_ERROR';
+export const adoptCatError = cat => ({
+  type: ADOPT_CAT_ERROR,
+  cat
+})
+
 export const fetchCat = () => dispatch => {
 	dispatch(fetchCatRequest());
 	fetch(`/api/cat`)
@@ -31,4 +49,23 @@ export const fetchCat = () => dispatch => {
 		.catch(err => {
 			dispatch(fetchCatError(err));
 		})
+};
+
+export const fetchCat = () => dispatch => {
+	dispatch(adoptCatRequest());
+	return fetch(`/api/cat`, {
+		method: `DELETE`
+	})
+	.then(res => {
+	  if (!res.ok) {
+		  throw new Error(res.statusTest)
+	  }
+		dispatch(fetchCat());
+	  })
+	  .then(cat => {
+				dispatch(adoptCatSuccess(cat));
+      })
+    .catch(err => {
+      dispatch(adoptCatError(err));
+    });
 };
