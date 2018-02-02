@@ -25,7 +25,7 @@ export default function Pet(props) {
 				<dt>Story</dt>
 				<dd>{story}</dd>
 				</dl>
-				<button>
+				<button onClick={props.onAdoptPet}>
 					Adopt!
 				</button>
 			</main>
