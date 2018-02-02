@@ -24,7 +24,7 @@ export const catReducer = (state = initialState, action) => {
 		return Object.assign({}, state, {
 			loading: false,
 			error: null,
-			cats: action.cats
+			cats: action.cat
 		})
 	}
 	else if(action.type===FETCH_CAT_ERROR){
@@ -41,7 +41,7 @@ export const catReducer = (state = initialState, action) => {
 	}
 	else if(action.type===ADOPT_CAT_SUCCESS){
 		return Object.assign({}, state, {
-			cats: action.cats
+			cats: action.cat
 		})
 	}
 	else if (action.type === ADOPT_CAT_ERROR){

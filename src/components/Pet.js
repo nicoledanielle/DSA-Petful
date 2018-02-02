@@ -1,29 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Pet(props) {
-	const name = props.adoptablePet.map(pet => pet.name);
-	const url = props.adoptablePet.map(pet => pet.imageURL);
-	const desc = props.adoptablePet.map(pet => pet.imageDescription);
-	const sex = props.adoptablePet.map(pet => pet.sex); 
-	const age = props.adoptablePet.map(pet => pet.age); 
-	const breed = props.adoptablePet.map(pet => pet.breed); 
-	const story = props.adoptablePet.map(pet => pet.story); 
+	if (props.loading) {
+		return (<div><h2>loading</h2></div>)
+	}
 	return(
 		<section>
 			<header>
-				<h1>{name}</h1>
-				<img src={url} alt={desc}/>
+				<h1>{props.name}</h1>
+				<img src={props.url} alt={props.desc}/>
 				</header>
 			<main>
 				<dl>
 				<dt>Sex</dt>
-				<dd>{sex}</dd>
+				<dd>{props.sex}</dd>
 				<dt>Age</dt>
-				<dd>{age}</dd>
+				<dd>{props.age}</dd>
 				<dt>Breed</dt>
-				<dd>{breed}</dd>
+				<dd>{props.breed}</dd>
 				<dt>Story</dt>
-				<dd>{story}</dd>
+				<dd>{props.story}</dd>
 				</dl>
 				<button onClick={props.handleAdopt}>
 					Adopt!
@@ -32,3 +29,5 @@ export default function Pet(props) {
 		</section>
 		)
 }
+
+Pet.propTypes = {name: PropTypes.string, url: PropTypes.string, des: PropTypes.string, sex: PropTypes.string, age: PropTypes.number, breed: PropTypes.string, story: PropTypes.string};

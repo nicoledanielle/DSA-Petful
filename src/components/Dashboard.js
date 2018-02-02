@@ -17,16 +17,16 @@ export class Dashboard extends Component {
   render() {
     return (
       <div>
-          {/* <Pet adoptablePet={this.props.adoptableCat} onAdoptPet={this.handleAdopt}/>
-          <Pet adoptablePet={this.props.adoptableDog} onAdoptPet={this.handleAdopt}/> */}
+          <Pet {...this.props.adoptableDog} onAdoptPet={this.handleAdopt}/>
+          <Pet {...this.props.adoptableCat} onAdoptPet={this.handleAdopt}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  adoptableDog: state.dogs,
-  adoptableCat: state.cats
+  adoptableDog: Object.assign({} , state.dogReducer.dogs, {loading: state.dogReducer.loading}),
+  adoptableCat: Object.assign({} , state.catReducer.cats, {loading: state.catReducer.loading})
 })
 
 export default connect(mapStateToProps)(Dashboard);
